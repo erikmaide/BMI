@@ -49,7 +49,7 @@ class _InputPageState extends State<InputPage> {
 
 class ReUsableCard extends StatelessWidget {
   final Color cardColor;
-  ReUsableCard({@required gitthis.cardColor});
+  ReUsableCard({@required this.cardColor});
   @override
   Widget build(BuildContext context) {
     return Container(
