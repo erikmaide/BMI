@@ -31,37 +31,33 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReUsableCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
                     cardColor: selectedGender == Gender.male
                         ? activeCardColor
                         : inactiveCardColor,
-                    cardChild: FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedGender = Gender.male;
-                        });
-                      },
-                      child: IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        sex: 'MALE',
-                      ),
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      sex: 'MALE',
                     ),
                   ),
                 ),
                 Expanded(
                   child: ReUsableCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                     cardColor: selectedGender == Gender.female
                         ? activeCardColor
                         : inactiveCardColor,
-                    cardChild: FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedGender = Gender.female;
-                        });
-                      },
-                      child: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        sex: 'FEMALE',
-                      ),
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      sex: 'FEMALE',
                     ),
                   ),
                 )
