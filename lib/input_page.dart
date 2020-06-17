@@ -138,7 +138,7 @@ class _InputPageState extends State<InputPage> {
                                 icon: FontAwesomeIcons.minus,
                                 touch: () {
                                   setState(() {
-                                    weight = weight - 1;
+                                    weight--;
                                   });
                                 }),
                             SizedBox(width: 10.0),
@@ -146,7 +146,7 @@ class _InputPageState extends State<InputPage> {
                                 icon: FontAwesomeIcons.plus,
                                 touch: () {
                                   setState(() {
-                                    weight = weight + 1;
+                                    weight++;
                                   });
                                 }),
                           ],
@@ -176,7 +176,7 @@ class _InputPageState extends State<InputPage> {
                                 icon: FontAwesomeIcons.minus,
                                 touch: () {
                                   setState(() {
-                                    age = age - 1;
+                                    age--;
                                   });
                                 }),
                             SizedBox(width: 10.0),
@@ -184,7 +184,7 @@ class _InputPageState extends State<InputPage> {
                                 icon: FontAwesomeIcons.plus,
                                 touch: () {
                                   setState(() {
-                                    age = age + 1;
+                                    age++;
                                   });
                                 }),
                           ],
