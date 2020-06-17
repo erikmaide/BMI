@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'round_icon_button.dart';
 
 enum Gender { male, female }
 
@@ -15,6 +16,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 182;
+  int weight = 80;
+  int age = 28;
 
   @override
   Widget build(BuildContext context) {
@@ -115,10 +118,80 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReUsableCard(cardColor: activeCardColor),
+                  child: ReUsableCard(
+                    cardColor: activeCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'WEIGHT',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: numbersTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                touch: () {
+                                  setState(() {
+                                    weight = weight - 1;
+                                  });
+                                }),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                touch: () {
+                                  setState(() {
+                                    weight = weight + 1;
+                                  });
+                                }),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReUsableCard(cardColor: activeCardColor),
+                  child: ReUsableCard(
+                    cardColor: activeCardColor,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'AGE',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: numbersTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                touch: () {
+                                  setState(() {
+                                    age = age - 1;
+                                  });
+                                }),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                touch: () {
+                                  setState(() {
+                                    age = age + 1;
+                                  });
+                                }),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
