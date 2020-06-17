@@ -196,11 +196,21 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: bottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second screen using a named route.
+              Navigator.pushNamed(context, '/results');
+            },
+            child: Container(
+              child: Center(
+                child: Text('Calculate',
+                    style: TextStyle(color: Colors.white, fontSize: 28.0)),
+              ),
+              color: bottomContainerColor,
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: bottomContainerHeight,
+            ),
           ),
         ],
       ),
