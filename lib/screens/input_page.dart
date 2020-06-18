@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'icon_content.dart';
-import 'constants.dart';
-import 'round_icon_button.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/components/icon_content.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:bmi_calculator/components/bottomButton.dart';
 
 enum Gender { male, female }
 
@@ -127,9 +128,20 @@ class _InputPageState extends State<InputPage> {
                           'WEIGHT',
                           style: labelTextStyle,
                         ),
-                        Text(
-                          weight.toString(),
-                          style: numbersTextStyle,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: <Widget>[
+                            Text(
+                              weight.toString(),
+                              style: numbersTextStyle,
+                            ),
+                            Text(
+                              'KG',
+                              style: label2TextStyle,
+                            )
+                          ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -196,21 +208,11 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
             onTap: () {
-              // Navigate to the second screen using a named route.
               Navigator.pushNamed(context, '/results');
             },
-            child: Container(
-              child: Center(
-                child: Text('Calculate',
-                    style: TextStyle(color: Colors.white, fontSize: 28.0)),
-              ),
-              color: bottomContainerColor,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: bottomContainerHeight,
-            ),
+            buttonTitle: 'CALCULATE',
           ),
         ],
       ),
