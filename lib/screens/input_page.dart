@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,6 +7,8 @@ import 'package:bmi_calculator/components/icon_content.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:bmi_calculator/components/bottomButton.dart';
+import 'package:bmi_calculator/bmiCalculator.dart';
+import 'dart:math';
 
 enum Gender { male, female }
 
@@ -16,9 +19,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  int height = 182;
-  int weight = 80;
-  int age = 28;
+  int height = 180;
+  int weight = 82;
+  int age = 33;
 
   @override
   Widget build(BuildContext context) {
@@ -210,7 +213,17 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
-              Navigator.pushNamed(context, '/results');
+              BmiCalculator calc =
+                  BmiCalculator(height: height, weight: weight);
+              Navigator.pushNamed(
+                context,
+                '/results',
+                arguments: ResultsPage(
+                  bmiResult: calc.calculateBMI(),
+                  bmiText: calc.getResults(),
+                  interpretation: calc.getInterpretation(),
+                ),
+              );
             },
             buttonTitle: 'CALCULATE',
           ),
