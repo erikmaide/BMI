@@ -26,7 +26,7 @@ class BmiCalculator {
     } else if (_bmi >= 18.5) {
       return 'Sinu tulemus on suurepärane';
     } else {
-      return 'Söö rohkem pähkeid';
+      return 'Söö rohkem pähkleid';
     }
   }
 }
