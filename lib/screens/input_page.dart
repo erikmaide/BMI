@@ -27,7 +27,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: Text('KMI Kalkulaator'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,7 +47,7 @@ class _InputPageState extends State<InputPage> {
                         : inactiveCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.mars,
-                      sex: 'MALE',
+                      sex: 'MEES',
                     ),
                   ),
                 ),
@@ -63,7 +63,7 @@ class _InputPageState extends State<InputPage> {
                         : inactiveCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.venus,
-                      sex: 'FEMALE',
+                      sex: 'NAINE',
                     ),
                   ),
                 )
@@ -77,7 +77,7 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'HEIGHT',
+                        'Pikkus',
                         style: labelTextStyle,
                       ),
                       Row(
@@ -128,7 +128,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'WEIGHT',
+                          'Mass',
                           style: labelTextStyle,
                         ),
                         Row(
@@ -177,7 +177,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'AGE',
+                          'Vanus',
                           style: labelTextStyle,
                         ),
                         Text(
@@ -211,22 +211,29 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          BottomButton(
-            onTap: () {
-              BmiCalculator calc =
-                  BmiCalculator(height: height, weight: weight);
-              Navigator.pushNamed(
-                context,
-                '/results',
-                arguments: ResultsPage(
-                  bmiResult: calc.calculateBMI(),
-                  bmiText: calc.getResults(),
-                  interpretation: calc.getInterpretation(),
-                ),
-              );
-            },
-            buttonTitle: 'CALCULATE',
-          ),
+          Container(
+              child: (selectedGender == Gender.female ||
+                      selectedGender == Gender.male)
+                  ? BottomButton(
+                      buttonTitle: 'Arvuta',
+                      onTap: () {
+                        BmiCalculator calc =
+                            BmiCalculator(height: height, weight: weight);
+                        Navigator.pushNamed(
+                          context,
+                          '/results',
+                          arguments: ResultsPage(
+                            bmiResult: calc.calculateBMI(),
+                            bmiText: calc.getResults(),
+                            interpretation: calc.getInterpretation(),
+                          ),
+                        );
+                      },
+                    )
+                  : BottomButton(
+                      buttonTitle: 'Vali sugu',
+                      onTap: () {},
+                    )),
         ],
       ),
     );

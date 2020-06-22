@@ -12,21 +12,21 @@ class BmiCalculator {
 
   String getResults() {
     if (_bmi >= 25) {
-      return 'Overweight';
+      return 'Ülekaal';
     } else if (_bmi >= 18.5) {
-      return 'Normal';
+      return 'Normaalne';
     } else {
-      return 'Underweight';
+      return 'Alakaal';
     }
   }
 
   String getInterpretation() {
     if (_bmi >= 25) {
-      return 'You should eat healthier and be more active';
+      return 'Sa peaksid rohkem trenni tegema ning  tervislikumalt toituma';
     } else if (_bmi >= 18.5) {
-      return 'You are doing well, continue as usual';
+      return 'Sinu tulemus on suurepärane';
     } else {
-      return 'You should eat more peanuts';
+      return 'Söö rohkem pähkeid';
     }
   }
 }

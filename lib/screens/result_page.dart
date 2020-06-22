@@ -15,7 +15,7 @@ class ResultsPage extends StatelessWidget {
     final ResultsPage bmiArgs = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: Text('KMI KALKULAATOR'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -25,7 +25,7 @@ class ResultsPage extends StatelessWidget {
               child: Container(
             alignment: Alignment.bottomLeft,
             padding: EdgeInsets.all(15.0),
-            child: Text('Your result', style: titleTextStyle),
+            child: Text('Sinu tulemus', style: titleTextStyle),
           )),
           Expanded(
             flex: 5,
@@ -57,7 +57,7 @@ class ResultsPage extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            buttonTitle: 'Re-Calculate',
+            buttonTitle: 'Arvuta uuesti',
           ))
         ],
       ),
